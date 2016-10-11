@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zndrke Formulary</title>
+    <meta name="description" content="Minimal Form Interface: Simplistic, single input view form" />
+    <meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
+
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+<body>
+<div class="container">
+    <!-- Top Navigation -->
+    <header class="codrops-header">
+        <h1>Zndrke<span>Key of Thunder</span></h1>
+    </header>
+    <section>
+        <form id="theForm" class="simform" autocomplete="off" method="post" action="form.html">
+            <div class="simform-inner">
+                <ol class="questions">
+
+                    <!-- START SECTION 1 -->
+                    <li>
+                        <!-- Product Title -->
+                        <span><label for="q1">Provide the title of your next release</label></span>
+                        <input id="q1" name="q1" type="text"/>
+                    </li>
+
+                    <!-- TODO meter foto del album, no va en el XLS -->
+
+
+                    <li>
+                        <!-- Artist -->
+                        <span><label for="q2">Artist</label></span>
+                        <input id="q2" name="q2" type="text"/>
+                    </li>
+
+
+                    <!-- HIDDEN Barcode provided by CI -->
+                    <!-- HIDDEN Catalogue NO. ZNDRKE000000 TODO implement counter -->
+
+                    <li>
+                    <!-- Release Format Type: 3options: Single, EP, Album -->
+                        <span><label for="q3">Release Format Type</label></span>
+                        <!-- <select id="q3" name=3 size="3" type="text">
+                        <!--    <option value="Single" selected="selected">Single</option>
+                        <!--    <option value="EP">EP</option>
+                        <!--    <option value="Album">Album</option>
+                       <<!-- /select> -->
+                        <input id="q3" name="q3" type="text"/>
+                    </li>
+                    <!-- DEFAULT-HIDDEN PRICE BAND: ponemos MID por defecto-->
+                    <!-- DEFAULT-HIDDEN LICENSED TERRITORIES to INCLUDE: ponemos WORLD por defecto -->
+
+
+                    <!-- TODO RELEASE START DATE: Calendario que te pego para que elija la salida del disco-->
+
+                    <!-- si hay label ponemos nombre del campo label en p holder y c holder -->
+                    <!-- si no hay label ponemos el artist en p holder y c holder -->
+
+                    <li>
+                        <span><label for="q4">LABEL: Leave blank if you´re not signed by a label</label></span>
+                        <input id="q4" name="q4" type="text"/>
+                    </li>
+
+                    <!-- HIDDEN P YEAR current year-->
+                    <!-- HIDDEN P HOLDER:  artist -->
+                    <!-- HIDDEN C YEAR current year-->
+                    <!-- HIDDEN C HOLDER:  artist -->
+
+                    <!-- TODO GENRE(S): Main Genre?  DESPLEGABLE CON ESTILOS DE MUSICA  evento onchange js para filtrar la comboBox -->
+
+                    <!-- EXPLICIT CONTENT: N -->
+
+                    <!-- VOLUME NO. internamente un contador de 1 a n Preguntar -->
+
+                    <!-- VOLUME TOTAL. no estoy seguro si es el numero de pistas o que.. me enteraré estos días -->
+
+                    <!-- END SECTION 1 -->
+
+                    <!-- START SECTION 2 -->
+
+                    <li>
+                        <span><label for="q5">How many tracks have your release?</label></span>
+                        <input id="q5" name="q5" type="text"/>
+                    </li>
+
+                    <!-- segun numero se crean filas -->
+
+                    <!-- TRACK TITLE: Title for your track #1 (a n) -->
+                    <!--ARTIST(S) ponemos el nombre del artista internamente-->
+                    <!--ISRC no los pondrá interamente CI-->
+                    <!--AVAILABLE SEPARATELY: internamente N-->
+                    <!--(P) YEAR lo mismo de antes-->
+                    <!--(P) HOLDER lo mismo-->
+                    <!--GENRE(S)            Se copia lo que se puso en la SECTION 1-->
+                    <!--EXPLICIT CONTENT: todo N por defecto internamente-->
+                    <!-- END SECTION 2 -->
+                </ol><!-- /questions -->
+                <button class="submit" type="submit">Send answers</button>
+                <div class="controls">
+                    <button class="next"></button>
+                    <div class="progress"></div>
+							<span class="number">
+								<span class="number-current"></span>
+								<span class="number-total"></span>
+							</span>
+                    <span class="error-message"></span>
+                </div><!-- / controls -->
+            </div><!-- /simform-inner -->
+            <span class="final-message"></span>
+        </form><!-- /simform -->
+
+
+    </section>
+</div><!-- /container -->
+<script src="js/classie.js"></script>
+<script src="js/stepsForm.js"></script>
+<script>
+			var theForm = document.getElementById( 'theForm' );
+
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+					/*
+					form.submit()
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+
+					// let's just simulate something...
+					var messageEl = theForm.querySelector( '.final-message' );
+					messageEl.innerHTML = 'Thank you!';
+					classie.addClass( messageEl, 'show' );
+				}
+			} );
+		</script>
+<!-- For the demo ad only -->
+<script src="http://tympanus.net/codrops/adpacks/demoad.js"></script>
+
+</body>
+</html>
